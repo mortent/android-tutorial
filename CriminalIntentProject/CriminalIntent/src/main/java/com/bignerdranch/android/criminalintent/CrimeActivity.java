@@ -1,9 +1,12 @@
 package com.bignerdranch.android.criminalintent;
 
+import java.util.UUID;
+
 public class CrimeActivity extends SingleFragmentActivity {
 
     @Override
     protected CrimeFragment createFragment() {
-        return new CrimeFragment();
+        UUID crimeId = (UUID)getIntent().getSerializableExtra(CrimeFragment.EXTRA_CRIME_ID);
+        return CrimeFragment.newInstance(crimeId);
     }
 }
